@@ -34,13 +34,13 @@ class LicenseModal(discord.ui.Modal, title="JY HOSTING"):
 
             with open("licenses.txt", "r") as file:
 
-                licenses = [line.split(": ")[1].strip() for line in file.readlines() if line.startswith("라이센스:")]  # 파일에서 라이센스 목록만 추출
+                licenses = [line.split(": ")[1].strip() for line in file.readlines() if line.startswith("라이센스:")]
 
             if entered_license in licenses:
 
                 embed = discord.Embed(title="SUCCESS", description="호스팅이 진행중입니다 최소 1시간 ~ 24시간이 걸립니다", color=discord.Color.green())
 
-                await interaction.response.send_message(embed=embed, ephemeral=True)  # 유효한 라이센스 메시지 전송
+                await interaction.response.send_message(embed=embed, ephemeral=True)
 
                 admin = await bot.fetch_user(AUTHORIZED_USER_ID)
 

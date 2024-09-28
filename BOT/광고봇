@@ -20,8 +20,6 @@ intents.dm_messages = True
 
 intents.members = True
 
-# 토큰 관리 봇 클래스
-
 class TokenManagementBot(commands.Bot):
 
     def __init__(self, command_prefix, intents, token_management_token):

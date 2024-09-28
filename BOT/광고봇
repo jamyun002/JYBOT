@@ -60,10 +60,6 @@ class TokenManagementBot(commands.Bot):
 
                 await interaction.response.send_message("토큰 추가 성공", ephemeral=True)
 
-                
-
-                # 코드 재실행
-
                 await self.send_dm(interaction.user, "코드가 다시 실행됩니다.")
 
                 await interaction.response.send_message("코드가 다시 실행됩니다.", ephemeral=True)
@@ -105,8 +101,6 @@ class TokenManagementBot(commands.Bot):
                 await self.send_dm(interaction.user, f"토큰 삭제 실패: {e}")
 
                 await interaction.response.send_message(f"토큰 삭제 실패: {e}", ephemeral=True)
-
-# 메인 봇 클래스
 
 class MainBot(commands.Bot):
 
@@ -244,15 +238,11 @@ class MainBot(commands.Bot):
 
 async def main():
 
-    # 토큰 관리 봇
-
     token_management_token = "봇토큰"
 
     token_management_bot = TokenManagementBot(command_prefix='/', intents=intents, token_management_token=token_management_token)
 
     await token_management_bot.setup_commands()
-
-    # 메인 봇들
 
     with open('token/tokens.txt', 'r') as f:
 
